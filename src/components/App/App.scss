@@ -1,24 +1,27 @@
 @use 'variables'
 
-.App {
-  text-align: center;
+// if i remove this body selector the background goes white
+// even though there are no css rules applied to this selector
+body {
 }
 
-.App-logo {
-  height: 40vmin;
+.App {
+  background-color: #333333;
+  height: 200vh;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: #4F4F4F;
+  color: #F3CA3E;
+  border: 2px solid #F3CA3E;
+  border-left: none;
+  border-right: none;
+  margin-top: 30px;
+  width: 100%;
+  position: fixed;
+  height: 10%;
 }
 
-.App-link {
-  color: #09d3ac;
+h1 {
+  margin: 10px;
 }
