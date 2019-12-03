@@ -1,0 +1,26 @@
+.form {
+  color: #F3CA3E;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width:40%;
+  text-align: left;
+  margin: 50px auto 0 auto;
+  font-size: 1.4em;
+}
+
+input,
+button{
+  margin: 15px 15px 15px 0;
+  padding: 10px;
+  font-size: 1em;
+  width: 100
+}
+
+label {
+    margin: 5px 0 5px 0;
+}
+
+.radios {
+  margin-left: 40px;
+}
