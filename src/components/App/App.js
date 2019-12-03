@@ -25,15 +25,10 @@ class App extends Component {
     return (
       <div className="App">
         <Header
-          name: '',
-          quote: '',
-          rank: '',
+          name=''
+          quote=''
+          rank=''
         />
-        <header className="App-header">
-          <h1>
-            WELCOME
-          </h1>
-        </header>
         <WelcomeForm />
       </div>
     );
