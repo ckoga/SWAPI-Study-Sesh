@@ -3,7 +3,7 @@ import './Header.scss'
 
 const Header = ({name, quote, rank}) => {
   return(
-    <header className='Header'>
+    <header className='header'>
     <h1>WELCOME <span>{name.toUpperCase()}</span></h1>
     <h2>Ranking: {rank}</h2>
     <p>{quote}</p>

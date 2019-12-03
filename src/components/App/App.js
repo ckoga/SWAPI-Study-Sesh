@@ -19,8 +19,8 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
+      <div className="app">
+        <header className="app-header">
           <h1> WELCOME </h1>
         </header>}
         <WelcomeForm />
