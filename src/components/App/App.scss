@@ -1,10 +1,5 @@
 @import '../../variables';
 
-// if i remove this body selector the background goes white
-// even though there are no css rules applied to this selector
-// body {
-// }
-
 .App {
   background-color: $background-color;
   height: 200vh;
