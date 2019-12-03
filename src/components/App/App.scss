@@ -1,19 +1,19 @@
-@use 'variables'
+@import '../../variables';
 
 // if i remove this body selector the background goes white
 // even though there are no css rules applied to this selector
-body {
-}
+// body {
+// }
 
 .App {
-  background-color: #333333;
+  background-color: $background-color;
   height: 200vh;
 }
 
 .App-header {
-  background-color: #4F4F4F;
-  color: #F3CA3E;
-  border: 2px solid #F3CA3E;
+  background-color: $header-background;
+  color: $accent-color;
+  border: 2px solid $accent-color;
   border-left: none;
   border-right: none;
   margin-top: 30px;
