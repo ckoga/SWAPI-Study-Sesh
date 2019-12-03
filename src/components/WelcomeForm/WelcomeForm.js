@@ -7,7 +7,7 @@ class WelcomeForm extends Component {
     this.state = {
       name: '',
       quote: '"Luke. I am your father."',
-      rank: '',
+      rank: 'Padawan',
       // would we need a state property for each option that would be a boolean?
       error: false,
     }
@@ -21,12 +21,28 @@ class WelcomeForm extends Component {
         <label>Your Favorite SW Quote</label>
         <input type='text' name='quote' value={this.state.quote} />
         <label>Your SW Knowledge  </label>
-        <label className='radios' htmlFor='rank1'><input type='radio' name='rank' value='Padawan' id='rank1'/>
-        Padawan</label>
-        <label className='radios' htmlFor='rank2'><input type='radio' name='rank' value='Jedi Knight' id='rank2'/>
-        Jedi Knight</label>
-        <label className='radios' htmlFor='rank3'><input type='radio' name='rank' value='Jedi Master' id='rank3'/>
-        Jedi Master</label>
+
+        <label className='radios' htmlFor='rank1'>
+          <input type='radio' name='rank' value='Padawan'id='rank1'
+            checked={this.state.rank === 'Padawan'}
+            onChange={this.handleRankSelection}
+          />Padawan
+        </label>
+
+        <label className='radios' htmlFor='rank2'>
+          <input type='radio' name='rank' value='Jedi Knight'id='rank2'
+            checked={this.state.rank === 'Jedi Knight'}
+            onChange={this.handleRankSelection}
+          />Jedi Knight
+        </label>
+
+        <label className='radios' htmlFor='rank3'>
+          <input type='radio' name='rank' value='Jedi Master'id='rank3'
+            checked={this.state.rank === 'Jedi Master'}
+            onChange={this.handleRankSelection}
+          />Jedi Master
+        </label>
+
         <button>ENTER</button>
       </form>
     )
