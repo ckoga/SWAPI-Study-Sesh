@@ -23,6 +23,7 @@ class App extends Component {
             WELCOME
           </h1>
         </header>
+        <WelcomeForm />
       </div>
     );
   }
