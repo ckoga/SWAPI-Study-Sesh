@@ -17,18 +17,12 @@ class App extends Component {
     // fetch will go here I think and assign the actual array to this.state.movies
   }
 
-  updateHeader = (name, quote, rank) => {
-
-  }
-
   render() {
     return (
       <div className="App">
-        <Header
-          name=''
-          quote=''
-          rank=''
-        />
+        <header className="App-header">
+          <h1> WELCOME </h1>
+        </header>}
         <WelcomeForm />
       </div>
     );
