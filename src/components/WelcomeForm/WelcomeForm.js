@@ -8,9 +8,12 @@ class WelcomeForm extends Component {
       name: '',
       quote: '"Luke. I am your father."',
       rank: 'Padawan',
-      // would we need a state property for each option that would be a boolean?
       error: false,
     }
+  }
+
+  handleRankSelection = (event) => {
+    this.setState({ rank: event.target.value })
   }
 
   render() {
