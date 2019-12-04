@@ -6,6 +6,7 @@ import MovieCard from '../MovieCard/MovieCard';
 const DisplayContainer = ( {movies} ) => {
   const movieCards = movies.map(movie => {
     return <MovieCard
+      key={movie.episode_id}
       episode={movie.episode_id}
       title={movie.title}
       releaseDate={movie.release_date}
@@ -13,7 +14,7 @@ const DisplayContainer = ( {movies} ) => {
   })
   
   return (
-    <main className='display-container'>
+    <main className='display-container' key=''>
       {movieCards}
     </main>
   )
