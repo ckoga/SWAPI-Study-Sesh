@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './WelcomeForm.scss';
+import Header from '../Header/Header';
 
 class WelcomeForm extends Component {
   constructor() {
@@ -23,18 +24,28 @@ class WelcomeForm extends Component {
   handleClick = (event) => {
     event.preventDefault();
     if (this.state.name.length > 0 && this.state.quote.length > 0) {
-      console.log('everything is filled out!')
+      this.setState({error: false});
+      const headerComponent = <Header
+        name={this.state.name}
+        quote={this.state.quote}
+        rank={this.state.rank}
+      />
+      console.log(headerComponent);
+      // Here we will need to:
+      // Create <Header /> component and pass it props from state
+      // Display the movie page
+      // Could do this with a currentPage state in App with updatePage method?
     } else {
       this.setState({ error: true})
     }
+  }
 
-    // if three inputs are filled out {
-    // change the page displayed
-    // create/render header
-
-  // } else (not filled out) {
-      // remove hidden attribute from error message
-// }
+  createHeader = () => {
+    return <Header
+      name={this.state.name}
+      quote={this.state.quote}
+      rank={this.state.rank}
+    />
   }
 
   render() {
