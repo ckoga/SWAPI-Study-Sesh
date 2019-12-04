@@ -8,7 +8,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      movies: [],
+      movies: []
     }
   }
 
@@ -24,7 +24,9 @@ class App extends Component {
             WELCOME
           </h1>
         </header>
-        <DisplayContainer />
+        <DisplayContainer 
+          movies={this.state.movies}
+        />
         <WelcomeForm />
       </div>
     );
