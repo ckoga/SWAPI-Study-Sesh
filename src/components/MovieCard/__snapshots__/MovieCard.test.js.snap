@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieCard should match the snapshot with all the data being passed in correctly 1`] = `
+<article
+  className="movie-card"
+>
+  <h2>
+    Episode 
+    4
+  </h2>
+  <h3>
+    A New Hope
+  </h3>
+  <p>
+    1977-05-25
+  </p>
+  <button>
+    View Characters
+  </button>
+</article>
+`;
