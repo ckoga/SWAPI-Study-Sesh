@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import './App.scss';
 import '../../_variables.scss';
-import WelcomeForm from '../WelcomeForm/WelcomeForm'
+import WelcomeForm from '../WelcomeForm/WelcomeForm';
+import DisplayContainer from '../DisplayContainer/DisplayContainer';
 
 class App extends Component {
   constructor() {
@@ -40,6 +41,9 @@ class App extends Component {
         <header className='app-header'>
           <h1>WELCOME</h1>
         </header>
+        <DisplayContainer 
+          movies={this.state.movies}
+        />
         <WelcomeForm />
       </div>
     );
