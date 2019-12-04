@@ -22,8 +22,7 @@ class App extends Component {
   }
 
 // we would need a method here that would be invoked from within WelcomeForm
-// and have the state arg passed through to be set as the this.state.user in app
-
+// and have the state arg passed through to be set as the this.state.user in App
 
 
   componentDidMount() {
@@ -38,7 +37,9 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-
+        <header className='app-header'>
+          <h1>WELCOME</h1>
+        </header>
         <WelcomeForm />
       </div>
     );
