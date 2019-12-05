@@ -1,6 +1,10 @@
 @import '../../variables';
 
 .movie-card {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   color: $accent-color;
   background-color: $header-background;
   height: 300px;
@@ -23,11 +27,11 @@
   }
 }
 
-button {
+.characters-btn {
   color: $accent-color;
   background-color: $header-background;
   border: 1px solid $accent-color;
-  margin: 100px 10px 0 10px;
+  margin: 15px;
   border-radius: 5px;
 
   &:hover {
