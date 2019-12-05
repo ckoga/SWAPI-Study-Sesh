@@ -28,8 +28,32 @@ class App extends Component {
 
   componentDidMount() {
     // fetch will go here I think and assign the actual array to this.state.movies
+    fetch('https://swapi.co/api/films/')
+      .then(response => response.json())
+      .then(data => this.setState({ movies: data.results }))
+      .catch(err => console.log(err))
   }
 
+  fetchChar = (episode) => {
+    let selectedMov = this.state.movies.find(movie => movie.episode_id === episode)
+    selectedMov.characters.map(character => {
+      return fetch(character)
+        .then(response => response.json())
+        .then(charData => {
+          fetch(charData.homeworld)
+            .then(response => response.json())
+            .then(homeworldData => console.log('HW: ', homeworldData))
+          fetch(charData.species)
+            .then(response => response.json())
+            .then(speciesData => console.log('species: ', speciesData))
+          let charFilms = charData.films.map(film => {
+            fetch(film)
+              .then(response => response.json())
+              .then(filmData => console.log('film: ', filmData))
+          })
+          })
+    })
+  }
   // changePage = () => {
   //   setState of currentPage
   //   BELOW we would have to render conditionally
@@ -43,6 +67,7 @@ class App extends Component {
         </header>
         <DisplayContainer 
           movies={this.state.movies}
+          fetchChar={this.fetchChar}
         />
         <WelcomeForm />
       </div>

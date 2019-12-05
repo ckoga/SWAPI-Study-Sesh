@@ -3,13 +3,14 @@ import './DisplayContainer.scss'
 import MovieCard from '../MovieCard/MovieCard';
 
 
-const DisplayContainer = ( {movies} ) => {
+const DisplayContainer = ( {movies, fetchChar} ) => {
   const movieCards = movies.map(movie => {
     return <MovieCard
       key={movie.episode_id}
       episode={movie.episode_id}
       title={movie.title}
       releaseDate={movie.release_date}
+      fetchChar={fetchChar}
       />
   })
   
