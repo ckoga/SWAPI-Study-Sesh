@@ -3,6 +3,7 @@ import './App.scss';
 import '../../_variables.scss';
 import WelcomeForm from '../WelcomeForm/WelcomeForm';
 import DisplayContainer from '../DisplayContainer/DisplayContainer';
+import Header from '../Header/Header';
 
 class App extends Component {
   constructor() {
@@ -10,7 +11,7 @@ class App extends Component {
     this.state = {
       movies: [],
       error: false,
-      // currentPage: 'Landing'
+      currentPage: 'landing',
       // do we want/need the user object as part of the state of App
       // so that we can render the Header from within App instead of within
       // WelcomeForm
@@ -38,10 +39,13 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <header className='app-header'>
-          <h1>WELCOME</h1>
-        </header>
-        <DisplayContainer 
+        <Header
+          name={this.state.name}
+          quote={this.state.quote}
+          rank={this.state.rank}
+          currentPage={this.state.currentPage}
+        />
+        <DisplayContainer
           movies={this.state.movies}
         />
         <WelcomeForm />
