@@ -12,9 +12,6 @@ class App extends Component {
       movies: [],
       error: false,
       currentPage: 'landing',
-      // do we want/need the user object as part of the state of App
-      // so that we can render the Header from within App instead of within
-      // WelcomeForm
       user: {
         name: '',
         quote: '',
@@ -23,32 +20,29 @@ class App extends Component {
     }
   }
 
-// we would need a method here that would be invoked from within WelcomeForm
-// and have the state arg passed through to be set as the this.state.user in App
-
+  updateUser = (user) => {
+    this.setState({ user })
+  }
 
   componentDidMount() {
     // fetch will go here I think and assign the actual array to this.state.movies
   }
 
-  // changePage = () => {
-  //   setState of currentPage
-  //   BELOW we would have to render conditionally
-  // }
-
   render() {
     return (
       <div className="app">
         <Header
-          name={this.state.name}
-          quote={this.state.quote}
-          rank={this.state.rank}
+          name={this.state.user.name}
+          quote={this.state.user.quote}
+          rank={this.state.user.rank}
           currentPage={this.state.currentPage}
         />
         <DisplayContainer
           movies={this.state.movies}
         />
-        <WelcomeForm />
+        <WelcomeForm
+          updateUser={this.updateUser}
+        />
       </div>
     );
   }
