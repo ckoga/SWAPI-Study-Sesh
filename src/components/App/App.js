@@ -36,7 +36,8 @@ class App extends Component {
 
   fetchChar = (episode) => {
     let selectedMov = this.state.movies.find(movie => movie.episode_id === episode)
-    selectedMov.characters.map(character => {
+
+    let promises = selectedMov.characters.map(character => {
       return fetch(character)
         .then(response => response.json())
         .then(charData => {
@@ -46,13 +47,14 @@ class App extends Component {
           fetch(charData.species)
             .then(response => response.json())
             .then(speciesData => console.log('species: ', speciesData))
-          let charFilms = charData.films.map(film => {
+          charData.films.map(film => {
             fetch(film)
               .then(response => response.json())
               .then(filmData => console.log('film: ', filmData))
           })
           })
     })
+    console.log(promises)
   }
   // changePage = () => {
   //   setState of currentPage
