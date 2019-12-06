@@ -105,7 +105,6 @@ class App extends Component {
           rank={this.state.user.rank}
           currentPage={this.state.currentPage}
         />
-
         <Route exact path='/' render={ () =>
           <WelcomeForm
             updateUser={this.updateUser}
