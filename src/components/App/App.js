@@ -4,6 +4,7 @@ import '../../_variables.scss';
 import WelcomeForm from '../WelcomeForm/WelcomeForm';
 import DisplayContainer from '../DisplayContainer/DisplayContainer';
 import Header from '../Header/Header';
+import {Route} from 'react-router-dom';
 
 class App extends Component {
   constructor() {
@@ -27,11 +28,11 @@ class App extends Component {
 
   componentDidMount() {
     // fetch will go here I think and assign the actual array to this.state.movies
-    
-    fetch('https://swapi.co/api/films/')
-      .then(response => response.json())
-      .then(data => this.setState({ movies: data.results }))
-      .catch(err => console.log(err))
+
+    // fetch('https://swapi.co/api/films/')
+    //   .then(response => response.json())
+    //   .then(data => this.setState({ movies: data.results }))
+    //   .catch(err => console.log(err))
   }
 
   fetchChar = (episode) => {
@@ -104,14 +105,24 @@ class App extends Component {
           rank={this.state.user.rank}
           currentPage={this.state.currentPage}
         />
-        <DisplayContainer
-          movies={this.state.movies}
-          characters={this.state.characters}
-          fetchChar={this.fetchChar}
-        />
-        <WelcomeForm
-          updateUser={this.updateUser}
-        />
+
+        <Route exact path='/' render={ () =>
+          <WelcomeForm
+            updateUser={this.updateUser}
+          />
+        } />
+        <Route path='/movies' render={ () =>
+          <DisplayContainer
+            data={this.state.movies}
+            fetchChar={this.fetchChar}
+            isMovies={true}
+          />
+        } />
+        <Route path='/movies/:movie_id' render={ ({ match }) =>
+          <DisplayContainer
+            data={this.state.characters}
+          />
+        } />
       </div>
     );
   }
