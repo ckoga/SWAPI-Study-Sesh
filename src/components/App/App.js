@@ -106,6 +106,7 @@ class App extends Component {
         />
         <DisplayContainer
           movies={this.state.movies}
+          characters={this.state.characters}
           fetchChar={this.fetchChar}
         />
         <WelcomeForm

@@ -264,9 +264,25 @@ describe('MovieCard', () => {
       episode={movies[0].episode_id}
       title={movies[0].title}
       releaseDate={movies[0].release_date}
+      fetchChar={jest.fn()}
     />)
 
     expect(wrapper).toMatchSnapshot()
+  })
+
+  it('should call fetchChar with episode_id when clicked', () => {
+    const mockFetch = jest.fn();
+    const wrapper = shallow(<MovieCard
+      key={movies[0].episode_id}
+      episode={movies[0].episode_id}
+      title={movies[0].title}
+      releaseDate={movies[0].release_date}
+      fetchChar={mockFetch}
+    />);
+
+    wrapper.find('button').simulate('click');
+  
+    expect(mockFetch).toHaveBeenCalledWith(4);
   })
 
 });
