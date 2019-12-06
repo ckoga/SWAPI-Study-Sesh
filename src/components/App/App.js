@@ -4,6 +4,7 @@ import '../../_variables.scss';
 import WelcomeForm from '../WelcomeForm/WelcomeForm';
 import DisplayContainer from '../DisplayContainer/DisplayContainer';
 import Header from '../Header/Header';
+import CharacterCard from '../CharacterCard/CharacterCard';
 
 class App extends Component {
   constructor() {
@@ -39,6 +40,7 @@ class App extends Component {
         />
         <DisplayContainer
           movies={this.state.movies}
+          characters={this.state.characters}
         />
         <WelcomeForm
           updateUser={this.updateUser}
