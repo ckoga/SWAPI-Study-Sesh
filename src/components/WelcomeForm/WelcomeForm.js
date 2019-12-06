@@ -3,8 +3,8 @@ import './WelcomeForm.scss';
 import Header from '../Header/Header';
 
 class WelcomeForm extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       name: '',
       quote: '"Luke. I am your father."',
@@ -23,29 +23,17 @@ class WelcomeForm extends Component {
 
   handleClick = (event) => {
     event.preventDefault();
-    if (this.state.name.length > 0 && this.state.quote.length > 0) {
+    if (this.state.name && this.state.quote) {
       this.setState({error: false});
-      const headerComponent = <Header
-        name={this.state.name}
-        quote={this.state.quote}
-        rank={this.state.rank}
-      />
-      console.log(headerComponent);
-      // Here we will need to:
-      // Create <Header /> component and pass it props from state
-      // Display the movie page
-      // Could do this with a currentPage state in App with updatePage method?
+      const user = {
+        name: this.state.name,
+        quote: this.state.quote,
+        rank: 'Ranking: '+ this.state.rank,
+      }
+      this.props.updateUser(user);
     } else {
       this.setState({ error: true})
     }
-  }
-
-  createHeader = () => {
-    return <Header
-      name={this.state.name}
-      quote={this.state.quote}
-      rank={this.state.rank}
-    />
   }
 
   render() {

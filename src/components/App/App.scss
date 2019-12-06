@@ -1,20 +1,5 @@
 @import '../../variables';
 
-.app {
+body {
   background-color: $background-color;
-  height: 200vh;
-}
-
-.app-header {
-  background-color: $header-background;
-  color: $accent-color;
-  border: 2px solid $accent-color;
-  border-left: none;
-  border-right: none;
-  width: 100%;
-  height: 10%;
-}
-
-h1 {
-  margin: 10px;
 }
