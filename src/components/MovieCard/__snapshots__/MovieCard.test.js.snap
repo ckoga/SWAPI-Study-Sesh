@@ -14,7 +14,10 @@ exports[`MovieCard should match the snapshot with all the data being passed in c
   <p>
     1977-05-25
   </p>
-  <button>
+  <button
+    className="characters-btn"
+    onClick={[Function]}
+  >
     View Characters
   </button>
 </article>
