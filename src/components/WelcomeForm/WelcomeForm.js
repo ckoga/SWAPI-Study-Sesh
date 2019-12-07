@@ -69,7 +69,7 @@ class WelcomeForm extends Component {
         {this.state.name && this.state.quote &&
           <Link to='/movies'>
             <button onClick={() => this.handleClick()}>ENTER</button>
-            </Link>
+          </Link>
         }
       </form>
     )
