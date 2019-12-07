@@ -13,7 +13,6 @@ class App extends Component {
       movies: [],
       characters: [],
       error: false,
-      currentPage: 'landing',
       user: {
         name: '',
         quote: '',
@@ -91,10 +90,6 @@ class App extends Component {
       // .then(bios => this.setState({ characters: bios }))
     console.log(this.state.characters)
   }
-  // changePage = () => {
-  //   setState of currentPage
-  //   BELOW we would have to render conditionally
-  // }
 
   render() {
     return (
@@ -103,7 +98,7 @@ class App extends Component {
           name={this.state.user.name}
           quote={this.state.user.quote}
           rank={this.state.user.rank}
-          currentPage={this.state.currentPage}
+          updateUser={this.updateUser}
         />
         <Route exact path='/' render={ () =>
           <WelcomeForm
