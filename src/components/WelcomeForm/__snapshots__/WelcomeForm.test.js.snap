@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WelcomeForm should match the snapshot with all data passed in correctly 1`] = `
+<form
+  className="form"
+>
+  <label>
+    Your Name
+  </label>
+  <input
+    name="name"
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+  <label>
+    Your Favorite SW Quote
+  </label>
+  <input
+    name="quote"
+    onChange={[Function]}
+    type="text"
+    value="\\"Luke. I am your father.\\""
+  />
+  <label>
+    Your SW Knowledge
+  </label>
+  <label
+    className="radios"
+    htmlFor="rank1"
+  >
+    <input
+      checked={true}
+      id="rank1"
+      name="rank"
+      onChange={[Function]}
+      type="radio"
+      value="Padawan"
+    />
+    Padawan
+  </label>
+  <label
+    className="radios"
+    htmlFor="rank2"
+  >
+    <input
+      checked={false}
+      id="rank2"
+      name="rank"
+      onChange={[Function]}
+      type="radio"
+      value="Jedi Knight"
+    />
+    Jedi Knight
+  </label>
+  <label
+    className="radios"
+    htmlFor="rank3"
+  >
+    <input
+      checked={false}
+      id="rank3"
+      name="rank"
+      onChange={[Function]}
+      type="radio"
+      value="Jedi Master"
+    />
+    Jedi Master
+  </label>
+  <p
+    className="error"
+    hidden={true}
+  >
+    Error - Please provide name, quote and ranking to proceed.
+  </p>
+</form>
+`;
