@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './WelcomeForm.scss';
 import Header from '../Header/Header';
+import {Link} from 'react-router-dom';
 
 class WelcomeForm extends Component {
   constructor(props) {
@@ -21,8 +22,7 @@ class WelcomeForm extends Component {
     this.setState({ rank: event.target.value })
   }
 
-  handleClick = (event) => {
-    event.preventDefault();
+  handleClick = () => {
     if (this.state.name && this.state.quote) {
       this.setState({error: false});
       const user = {
@@ -66,7 +66,11 @@ class WelcomeForm extends Component {
         </label>
         <p className='error' hidden={!this.state.error}>
           Error - Please provide name, quote and ranking to proceed.</p>
-        <button onClick={(event) => this.handleClick(event)}>ENTER</button>
+        {this.state.name && this.state.quote &&
+          <Link to='/movies'>
+            <button onClick={() => this.handleClick()}>ENTER</button>
+          </Link>
+        }
       </form>
     )
   }
