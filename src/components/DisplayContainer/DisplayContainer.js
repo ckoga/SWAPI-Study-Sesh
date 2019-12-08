@@ -21,6 +21,11 @@ const DisplayContainer = ( {data, fetchChar, isMovies} ) => {
       console.log('isMovies is true so ELSE block')
       return <CharacterCard
               key={item.episode_id}
+              name={item.name}
+              homeworld={item.homeworld}
+              population={item.population}
+              species={item.species}
+              films={item.films}
               />
     }
   })
