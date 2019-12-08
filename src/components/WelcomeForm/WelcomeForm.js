@@ -41,7 +41,7 @@ class WelcomeForm extends Component {
       <form className='form'>
         <label>Your Name</label>
         <input type='text' name='name' value={this.state.name}
-          onChange={(event) => this.handleChange(event)}/>
+          onChange={(event) => this.handleChange(event)} id='nameInput'/>
         <label>Your Favorite SW Quote</label>
         <input type='text' name='quote' value={this.state.quote}
           onChange={(event) => this.handleChange(event)}/>

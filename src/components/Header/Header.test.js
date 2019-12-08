@@ -3,16 +3,16 @@ import {shallow} from 'enzyme';
 import Header from './Header';
 
 describe('Header', () => {
-  let updateUserMock;
+  let mockUpdateUser;
   let wrapper;
 
   beforeEach(() => {
-    updateUserMock = jest.fn();
+    mockUpdateUser = jest.fn();
     wrapper = shallow(<Header
         name='Chase'
         quote='Obscure StarWars Quote'
         rank='Ranking: Novice'
-        updateUser={updateUserMock}
+        updateUser={mockUpdateUser}
       />);
   })
 
@@ -27,16 +27,14 @@ describe('Header', () => {
       rank=''
       updateUser={jest.fn()}
       />);
-
     expect(wrapper).toMatchSnapshot();
   });
 
   it('should call updateUser prop with noUser arg signout button is clicked',
     () => {
-      const noUserMock = {name: '', quote: '', rank: ''};
-
+      const mockNoUser = {name: '', quote: '', rank: ''};
       wrapper.find('button').simulate('click');
-      expect(updateUserMock).toHaveBeenCalledWith(noUserMock);
+      expect(mockUpdateUser).toHaveBeenCalledWith(mockNoUser);
   });
 
 });
