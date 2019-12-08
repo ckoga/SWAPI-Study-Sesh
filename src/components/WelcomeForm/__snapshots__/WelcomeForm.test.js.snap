@@ -8,6 +8,7 @@ exports[`WelcomeForm should match the snapshot with all data passed in correctly
     Your Name
   </label>
   <input
+    id="nameInput"
     name="name"
     onChange={[Function]}
     type="text"

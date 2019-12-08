@@ -12,7 +12,8 @@ const Header = ({name, quote, rank, updateUser}) => {
     <h2>{rank}</h2>
     <p>{quote}</p>
     <Link to='/'>
-    <button onClick={() => updateUser(noUser)} className={buttonView}>Sign Out</button>
+    <button onClick={() => updateUser(noUser)}
+      className={buttonView}>Sign Out</button>
     </Link>
     </header>
   )

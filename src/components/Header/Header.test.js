@@ -25,7 +25,7 @@ describe('Header', () => {
       name=''
       quote=''
       rank=''
-      updateUser={jest.fn()}
+      updateUser={mockUpdateUser}
       />);
     expect(wrapper).toMatchSnapshot();
   });

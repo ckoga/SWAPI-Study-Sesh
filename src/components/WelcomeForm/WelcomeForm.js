@@ -49,25 +49,25 @@ class WelcomeForm extends Component {
         <label className='radios' htmlFor='rank1'>
           <input type='radio' name='rank' value='Padawan'id='rank1'
             checked={this.state.rank === 'Padawan'}
-            onChange={this.handleRankSelection}
+            onChange={event => this.handleRankSelection(event)}
           />Padawan
         </label>
         <label className='radios' htmlFor='rank2'>
           <input type='radio' name='rank' value='Jedi Knight'id='rank2'
             checked={this.state.rank === 'Jedi Knight'}
-            onChange={this.handleRankSelection}
+            onChange={event => this.handleRankSelection(event)}
           />Jedi Knight
         </label>
         <label className='radios' htmlFor='rank3'>
           <input type='radio' name='rank' value='Jedi Master'id='rank3'
             checked={this.state.rank === 'Jedi Master'}
-            onChange={this.handleRankSelection}
+            onChange={event => this.handleRankSelection(event)}
           />Jedi Master
         </label>
         <p className='error' hidden={!this.state.error}>
           Error - Please provide name, quote and ranking to proceed.</p>
         {this.state.name && this.state.quote &&
-          <Link to='/movies'>
+          <Link id='link' to='/movies'>
             <button onClick={() => this.handleClick()}>ENTER</button>
           </Link>
         }
