@@ -49,6 +49,7 @@ class App extends Component {
 // NESTED) SO THAT WE CAN TEST THE VIEW CHARACTERS BUTTON LINK AND DISPLAY WITH
 // OUT FETCHING UNNECCESARILY
     let movChar;
+    let fetchedChars = [];
     let selectedMov = this.state.movies.find(movie => movie.episode_id === episode)
     
     let promises = selectedMov.characters.map(character => {
@@ -65,33 +66,38 @@ class App extends Component {
                 species: '',
                 films: []
               }
-            //   // console.log('HW: ', homeworldData)
+              console.log('HW: ', movChar)
             })
           fetch(charData.species)
             .then(response => response.json())
-            .then(speciesData => { 
-              movChar = {
-                species: speciesData.name,
-                films: []
-              }
+            .then(speciesData => {
+              movChar.species = speciesData.name
+              console.log('movChar: ', movChar)
               return movChar;
+            }
               // console.log('species: ', speciesData)
-            })
-          charData.films.map(film => {
+            )
+          let charFilms = charData.films.map(film => {
             return fetch(film)
               .then(response => response.json())
-              .then(filmData => {
+              // .then(filmData => {
                 // console.log('filmData: ', filmData)
-                movChar.films.push(filmData.title)
+                // movChar.films.push(filmData.title)
                 // console.log('film: ', filmData)
-              })
+              // })
+              
           })
+          Promise.all(charFilms)
+          .then(filmData => movChar.films = filmData)
+          .then(() => fetchedChars.push(movChar))
+          // .then(res => console.log(movChar))
         })
       })
+      console.log('fetchedChar: ', fetchedChars)
       console.log('propmises; ', promises)
-      Promise.all(promises)
-      .then(movChar => this.setState({ characters: movChar }))
-      .then(res => console.log(this.state.characters))
+      // Promise.all(promises)
+      // .then(movChar => this.setState({ characters: movChar }))
+      // .then(res => console.log(this.state.characters))
     
   }
 
