@@ -44,65 +44,55 @@ class App extends Component {
   }
 
   fetchChar = (episode) => {
-    console.log('get em')
+    // console.log('get em')
 // THIS ENTIRE FUNCTION OF FETCHES IS COMMENTED OUT (WITH OTHER COMMENTED CODE
 // NESTED) SO THAT WE CAN TEST THE VIEW CHARACTERS BUTTON LINK AND DISPLAY WITH
 // OUT FETCHING UNNECCESARILY
-
-    // let selectedMov = this.state.movies.find(movie => movie.episode_id === episode)
-    //
-    // let promises = selectedMov.characters.map(character => {
-    //   return fetch(character)
-    //     .then(response => response.json())
-    //     .then(charData => {
-    //       fetch(charData.homeworld)
-    //         .then(response => response.json())
-    //         .then(homeworldData => {
-    //           // let movChar = {
-    //           //   name: charData.name,
-    //           //   homeworld: homeworldData,
-    //           //   hwPop: homeworld.population,
-    //           //   species: speciesData,
-    //           //   films: []
-    //           // }
-    //           console.log('HW: ', homeworldData)
-    //         })
-    //       fetch(charData.species)
-    //         .then(response => response.json())
-    //         .then(speciesData => {
-    //           // movChar = {
-    //           //   name: charData.name,
-    //           //   homeworld: homeworldData,
-    //           //   hwPop: homeworld.population,
-    //           //   species: speciesData,
-    //           //   films: []
-    //           // }
-    //           // return movChar;
-    //           console.log('species: ', speciesData)
-    //         })
-    //       charData.films.map(film => {
-    //         return fetch(film)
-    //           .then(response => response.json())
-    //           .then(filmData => {
-    //           //   movChar.films.push(filmData)
-    //             console.log('film: ', filmData)
-    //           })
-    //       })
-    //       })
-    // })
-    // Promise.all(promises)
-    //   // .then(bios => bios.map(bio => {
-    //   //   let movChar = {
-    //   //     name: charData.name,
-    //   //     homeworld: homeworldData,
-    //   //     hwPop: homeworld.population,
-    //   //     species: speciesData,
-    //   //     films: []
-    //   //   }
-    //   //   return movChar
-    //   // }))
-    //   // .then(bios => this.setState({ characters: bios }))
-    // console.log(this.state.characters)
+    let movChar;
+    let selectedMov = this.state.movies.find(movie => movie.episode_id === episode)
+    
+    let promises = selectedMov.characters.map(character => {
+      return fetch(character)
+        .then(response => response.json())
+        .then(charData => {
+          fetch(charData.homeworld)
+            .then(response => response.json())
+            .then(homeworldData => {
+              movChar = {
+                name: charData.name,
+                homeworld: homeworldData.name,
+                population: homeworldData.population,
+                species: '',
+                films: []
+              }
+            //   // console.log('HW: ', homeworldData)
+            })
+          fetch(charData.species)
+            .then(response => response.json())
+            .then(speciesData => { 
+              movChar = {
+                species: speciesData.name,
+                films: []
+              }
+              return movChar;
+              // console.log('species: ', speciesData)
+            })
+          charData.films.map(film => {
+            return fetch(film)
+              .then(response => response.json())
+              .then(filmData => {
+                // console.log('filmData: ', filmData)
+                movChar.films.push(filmData.title)
+                // console.log('film: ', filmData)
+              })
+          })
+        })
+      })
+      console.log('propmises; ', promises)
+      Promise.all(promises)
+      .then(movChar => this.setState({ characters: movChar }))
+      .then(res => console.log(this.state.characters))
+    
   }
 
   render() {

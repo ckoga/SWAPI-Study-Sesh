@@ -18,9 +18,9 @@ const DisplayContainer = ( {data, fetchChar, isMovies} ) => {
               fetchChar={fetchChar}
               />
     } else {
-      console.log('isMovies is true so ELSE block')
+      console.log('isMovies is false so ELSE block')
       return <CharacterCard
-              key={item.episode_id}
+              key={item.name}
               name={item.name}
               homeworld={item.homeworld}
               population={item.population}
