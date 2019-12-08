@@ -1,22 +1,33 @@
 import React from 'react';
 import './DisplayContainer.scss'
 import MovieCard from '../MovieCard/MovieCard';
+import CharacterCard from '../CharacterCard/CharacterCard';
 
 
-const DisplayContainer = ( {movies, fetchChar} ) => {
-  const movieCards = movies.map(movie => {
-    return <MovieCard
-      key={movie.episode_id}
-      episode={movie.episode_id}
-      title={movie.title}
-      releaseDate={movie.release_date}
-      fetchChar={fetchChar}
-      />
+const DisplayContainer = ( {data, fetchChar, isMovies} ) => {
+  console.log('isMovies: ', isMovies)
+  const cards = data.map(item => {
+    console.log('inside .map', 'made it')
+    if (isMovies) {
+      console.log('isMovies is true so IF block')
+      return <MovieCard
+              key={item.episode_id}
+              episode={item.episode_id}
+              title={item.title}
+              releaseDate={item.release_date}
+              fetchChar={fetchChar}
+              />
+    } else {
+      console.log('isMovies is true so ELSE block')
+      return <CharacterCard
+              key={item.episode_id}
+              />
+    }
   })
-  
+
   return (
     <main className='display-container' key=''>
-      {movieCards}
+      {cards}
     </main>
   )
 }
