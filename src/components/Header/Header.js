@@ -1,14 +1,11 @@
-import React from 'react'
-import './Header.scss'
-import {Link} from 'react-router-dom'
+import React from 'react';
+import './Header.scss';
+import {Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const Header = ({name, quote, rank, updateUser}) => {
   const buttonView = name ? 'show' : 'hide';
-
-  const handleClick = () => {
-    const noUser = {name: '', quote: '', rank: ''}
-    updateUser(noUser);
-  }
+  const noUser = {name: '', quote: '', rank: ''};
 
   return(
     <header className='header'>
@@ -16,10 +13,18 @@ const Header = ({name, quote, rank, updateUser}) => {
     <h2>{rank}</h2>
     <p>{quote}</p>
     <Link to='/'>
-    <button onClick={handleClick}className={buttonView}>Sign Out</button>
+    <button onClick={() => updateUser(noUser)}
+      className={buttonView}>Sign Out</button>
     </Link>
     </header>
   )
 }
 
 export default Header;
+
+Header.propTypes = {
+  name: PropTypes.string,
+  quote: PropTypes.string,
+  rank: PropTypes.string,
+  updateUser: PropTypes.func,
+}
