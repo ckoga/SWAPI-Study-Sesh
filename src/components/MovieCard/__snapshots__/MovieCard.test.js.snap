@@ -2,7 +2,7 @@
 
 exports[`MovieCard should match the snapshot with all the data being passed in correctly 1`] = `
 <article
-  className="movie-card"
+  className="card"
 >
   <h2>
     Episode 
@@ -14,11 +14,15 @@ exports[`MovieCard should match the snapshot with all the data being passed in c
   <p>
     1977-05-25
   </p>
-  <button
-    className="characters-btn"
-    onClick={[Function]}
+  <Link
+    to="/movies/4"
   >
-    View Characters
-  </button>
+    <button
+      className="characters-btn"
+      onClick={[Function]}
+    >
+      View Characters
+    </button>
+  </Link>
 </article>
 `;
