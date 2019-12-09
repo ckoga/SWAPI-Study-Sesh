@@ -35,7 +35,7 @@ class App extends Component {
     //   .catch(err => console.log(err))
   }
 
-  fetchChar = (episode) => {
+  fetchHandler = (episode) => {
     const selectedMov = this.state.movies.find(movie => movie.episode_id === episode)
     const tenCharacters = selectedMov.characters.slice(0, 10);
 
@@ -106,7 +106,7 @@ class App extends Component {
         <Route exact path='/movies' render={ () => {
           return (<DisplayContainer
             data={this.state.movies}
-            fetchChar={this.fetchChar}
+            fetchHandler={this.fetchHandler}
             isMovies={true}
           />)}
         } />
