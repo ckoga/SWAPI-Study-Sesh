@@ -80,5 +80,13 @@ describe('getFilms', () => {
     expect(getFilms()).resolves.toEqual(mockResponse)
   });
 
-  
-})
+  it('should return an error for a response that is not ok', () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: false,
+      })
+    })
+
+    expect(getFilms()).rejects.toEqual(Error('Error fetching films'))
+  });
+});
