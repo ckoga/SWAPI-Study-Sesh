@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './WelcomeForm.scss';
 import Header from '../Header/Header';
 import {Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class WelcomeForm extends Component {
   constructor(props) {
@@ -77,3 +78,7 @@ class WelcomeForm extends Component {
 }
 
 export default WelcomeForm;
+
+WelcomeForm.propTypes = {
+  updateUser: PropTypes.func
+}
