@@ -1,6 +1,7 @@
-import React from 'react'
-import './Header.scss'
-import {Link} from 'react-router-dom'
+import React from 'react';
+import './Header.scss';
+import {Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const Header = ({name, quote, rank, updateUser}) => {
   const buttonView = name ? 'show' : 'hide';
@@ -20,3 +21,10 @@ const Header = ({name, quote, rank, updateUser}) => {
 }
 
 export default Header;
+
+Header.propTypes = {
+  name: PropTypes.string,
+  quote: PropTypes.string,
+  rank: PropTypes.string,
+  updateUser: PropTypes.func,
+}
