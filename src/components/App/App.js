@@ -35,66 +35,58 @@ class App extends Component {
     //   .catch(err => console.log(err))
   }
 
-  fetchChar = (episode) => {
-    console.log('get em')
-// THIS ENTIRE FUNCTION OF FETCHES IS COMMENTED OUT (WITH OTHER COMMENTED CODE
-// NESTED) SO THAT WE CAN TEST THE VIEW CHARACTERS BUTTON LINK AND DISPLAY WITH
-// OUT FETCHING UNNECCESARILY
+  fetchHandler = (episode) => {
+    const selectedMov = this.state.movies.find(movie => movie.episode_id === episode)
+    const tenCharacters = selectedMov.characters.slice(0, 10);
 
-    // let selectedMov = this.state.movies.find(movie => movie.episode_id === episode)
-    //
-    // let promises = selectedMov.characters.map(character => {
-    //   return fetch(character)
-    //     .then(response => response.json())
-    //     .then(charData => {
-    //       fetch(charData.homeworld)
-    //         .then(response => response.json())
-    //         .then(homeworldData => {
-    //           // let movChar = {
-    //           //   name: charData.name,
-    //           //   homeworld: homeworldData,
-    //           //   hwPop: homeworld.population,
-    //           //   species: speciesData,
-    //           //   films: []
-    //           // }
-    //           console.log('HW: ', homeworldData)
-    //         })
-    //       fetch(charData.species)
-    //         .then(response => response.json())
-    //         .then(speciesData => {
-    //           // movChar = {
-    //           //   name: charData.name,
-    //           //   homeworld: homeworldData,
-    //           //   hwPop: homeworld.population,
-    //           //   species: speciesData,
-    //           //   films: []
-    //           // }
-    //           // return movChar;
-    //           console.log('species: ', speciesData)
-    //         })
-    //       charData.films.map(film => {
-    //         return fetch(film)
-    //           .then(response => response.json())
-    //           .then(filmData => {
-    //           //   movChar.films.push(filmData)
-    //             console.log('film: ', filmData)
-    //           })
-    //       })
-    //       })
-    // })
-    // Promise.all(promises)
-    //   // .then(bios => bios.map(bio => {
-    //   //   let movChar = {
-    //   //     name: charData.name,
-    //   //     homeworld: homeworldData,
-    //   //     hwPop: homeworld.population,
-    //   //     species: speciesData,
-    //   //     films: []
-    //   //   }
-    //   //   return movChar
-    //   // }))
-    //   // .then(bios => this.setState({ characters: bios }))
-    // console.log(this.state.characters)
+    const fetchCharData = () => {
+      const fetchedCharacters = tenCharacters.map(character => {
+        return fetch(character)
+          .then(response => response.json())
+          .then(charData => getNestedData(charData))
+      });
+      Promise.all(fetchedCharacters)
+        .then(data => this.setState({ characters: data }))
+    }
+
+    const getNestedData = (charData) => {
+      const homeWorld = fetchHomeWorld(charData)
+      const species = fetchSpecies(charData)
+      const films = fetchFilms(charData)
+      return Promise.all([homeWorld, species, ...films])
+        .then(data => {
+          return createCharacterObj(data, charData.name)})
+    }
+
+    const createCharacterObj = (resolvedData, name) => {
+      return {
+        name: name,
+        homeworld: resolvedData[0].name,
+        population: resolvedData[0].population,
+        species: resolvedData[1].name,
+        films: resolvedData.slice(2).map(film => film.title),
+      }
+    }
+
+    const fetchHomeWorld = (charData) => {
+      return fetch(charData.homeworld)
+        .then(response => response.json())
+    }
+
+    const fetchSpecies = (charData) => {
+      return fetch(charData.species)
+        .then(response => response.json())
+    }
+
+    const fetchFilms = (charData) => {
+      const filmPromises = charData.films.map(film => {
+        return fetch(film)
+          .then(response => response.json())
+      });
+      return filmPromises;
+    }
+
+    fetchCharData();
   }
 
   render() {
@@ -112,19 +104,16 @@ class App extends Component {
           />
         } />
         <Route exact path='/movies' render={ () => {
-          console.log('rendering the Movie path')
           return (<DisplayContainer
             data={this.state.movies}
-            fetchChar={this.fetchChar}
+            fetchHandler={this.fetchHandler}
             isMovies={true}
           />)}
         } />
         <Route path='/movies/:movie_id' render={ ({ match }) => {
-          console.log('Rendering the Character path')
-          return(<div><h1>CHARACTERS</h1>
-          <DisplayContainer
+          return(<DisplayContainer
             data={this.state.characters}
-          /></div>)}
+            />)}
         } />
       </div>
     );

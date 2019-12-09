@@ -259,29 +259,29 @@ describe('MovieCard', () => {
   });
 
   it('should match the snapshot with all the data being passed in correctly', () => {
-    const wrapper = shallow(<MovieCard 
+    const wrapper = shallow(<MovieCard
       key={movies[0].episode_id}
       episode={movies[0].episode_id}
       title={movies[0].title}
       releaseDate={movies[0].release_date}
-      fetchChar={jest.fn()}
+      fetchHandler={jest.fn()}
     />)
 
     expect(wrapper).toMatchSnapshot()
   })
 
-  it('should call fetchChar with episode_id when clicked', () => {
+  it('should call fetchHandler with episode_id when clicked', () => {
     const mockFetch = jest.fn();
     const wrapper = shallow(<MovieCard
       key={movies[0].episode_id}
       episode={movies[0].episode_id}
       title={movies[0].title}
       releaseDate={movies[0].release_date}
-      fetchChar={mockFetch}
+      fetchHandler={mockFetch}
     />);
 
     wrapper.find('button').simulate('click');
-  
+
     expect(mockFetch).toHaveBeenCalledWith(4);
   })
 

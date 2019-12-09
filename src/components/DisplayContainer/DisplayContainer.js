@@ -4,7 +4,7 @@ import MovieCard from '../MovieCard/MovieCard';
 import CharacterCard from '../CharacterCard/CharacterCard';
 
 
-const DisplayContainer = ( {data, fetchChar, isMovies} ) => {
+const DisplayContainer = ( {data, fetchHandler, isMovies} ) => {
   console.log('isMovies: ', isMovies)
   const cards = data.map(item => {
     console.log('inside .map', 'made it')
@@ -15,12 +15,17 @@ const DisplayContainer = ( {data, fetchChar, isMovies} ) => {
               episode={item.episode_id}
               title={item.title}
               releaseDate={item.release_date}
-              fetchChar={fetchChar}
+              fetchHandler={fetchHandler}
               />
     } else {
-      console.log('isMovies is true so ELSE block')
+      console.log('isMovies is false so ELSE block')
       return <CharacterCard
-              key={item.episode_id}
+              key={item.name}
+              name={item.name}
+              homeworld={item.homeworld}
+              population={item.population}
+              species={item.species}
+              films={item.films}
               />
     }
   })
