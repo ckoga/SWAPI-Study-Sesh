@@ -1,68 +1,38 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# SWAPI-Study-Sesh
+## Mod 3 Paired Project
 
-## Available Scripts
+An app that retrieves data from a Star Wars API and displays it for users to study up on Star Wars trivia.
 
-In the project directory, you can run:
+### Set Up
 
-### `npm start`
+Clone this repo to your local machine.
+Run `npm install` to install dependencies.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+To launch the application, run `npm start` in your terminal.  
+Go to `http://localhost:3000/` in your browser and explore!
+Type `control + c` in your terminal to stop running the application locally.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### Technologies
 
-### `npm test`
+This application was built with `create-react-app`and utilizes:
+  - React
+  - JavaScript ES6
+  - Scss
+  - Webpack
+  - Fetch API
+  - Testing with Jest and Enzyme
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This project focused on:
+  - Building an application with React and implementing React Router
+  - Building clean, modular architecture
+  - Using the Fetch API to consume multiple nested endpoints
+  - Building a robust test suite of snapshot tests, unit tests in addition to async testing
+  - Using GitHub Projects and Issues for effective project management
 
-### `npm run build`
+### Screenshots
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Landing Page
+![SWAPI-load-page](https://user-images.githubusercontent.com/48163945/70572777-b6bd7700-1b5d-11ea-95c4-e4d17258da1f.png)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+#### Movie Display Page
+![SWAPI-movie-display-page](https://user-images.githubusercontent.com/48163945/70572815-ce94fb00-1b5d-11ea-948d-a889ae77aa1a.png)
