@@ -35,4 +35,8 @@ This project focused on:
 ![SWAPI-load-page](https://user-images.githubusercontent.com/48163945/70572777-b6bd7700-1b5d-11ea-95c4-e4d17258da1f.png)
 
 #### Movie Display Page
-![SWAPI-movie-display-page](https://user-images.githubusercontent.com/48163945/70572815-ce94fb00-1b5d-11ea-948d-a889ae77aa1a.png)
+![SWAPI-movie-page](https://user-images.githubusercontent.com/48163945/70573931-26346600-1b60-11ea-9a20-77583e88a770.png)
+
+
+#### Character Display Page
+![SWAPI-character-page](https://user-images.githubusercontent.com/48163945/70573734-d190eb00-1b5f-11ea-9caa-f5f252290bbf.png)
