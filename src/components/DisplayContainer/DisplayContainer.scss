@@ -1,6 +1,14 @@
+@import '../../variables';
+
 .display-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 10px;
+}
+
+.scroll-container {
+  text-align: center;
+  width: 45%;
+  color: $accent-color;
 }
