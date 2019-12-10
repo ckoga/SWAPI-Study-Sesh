@@ -271,7 +271,9 @@ describe('DisplayContainer', () => {
 
 
   it('should match the snapshot with all movie data passed in correctly', () => {
-    const wrapper = shallow(<DisplayContainer data={mockState.movies}/>)
+    const wrapper = shallow(<DisplayContainer 
+      data={mockState.movies}
+      isMovies={true}/>)
 
     expect(wrapper).toMatchSnapshot();
   });
