@@ -2,7 +2,7 @@ import React from 'react';
 import './DisplayContainer.scss'
 import MovieCard from '../MovieCard/MovieCard';
 import CharacterCard from '../CharacterCard/CharacterCard';
-
+import PropTypes from 'prop-types';
 
 const DisplayContainer = ( {data, fetchHandler, isMovies} ) => {
   const cards = data.map(item => {
@@ -34,3 +34,9 @@ const DisplayContainer = ( {data, fetchHandler, isMovies} ) => {
 }
 
 export default DisplayContainer;
+
+DisplayContainer.propTypes = {
+  data: PropTypes.array,
+  fetchHandler: PropTypes.func,
+  isMovies: PropTypes.bool
+}
