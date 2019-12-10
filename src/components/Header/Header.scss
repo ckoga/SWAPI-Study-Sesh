@@ -30,6 +30,8 @@ h2 {
     margin: 15px;
     border-radius: 5px;
     cursor: pointer;
+    padding: 10px;
+    font-size: 1em;
 
     &:hover {
       color: $header-background;

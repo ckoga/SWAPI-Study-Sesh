@@ -11,12 +11,9 @@
   font-size: 1.4em;
 }
 
-input,
-button {
-  margin: 15px 15px 15px 0;
+input {
   padding: 10px;
   font-size: 1em;
-  width: 100
 }
 
 label {
@@ -40,6 +37,8 @@ label {
   border-radius: 5px;
   width: 100%;
   cursor: pointer;
+  padding: 10px;
+  font-size: 1em;
 
   &:hover {
     color: $header-background;
