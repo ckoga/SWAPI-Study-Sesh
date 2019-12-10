@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './WelcomeForm.scss';
-import Header from '../Header/Header';
 import {Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class WelcomeForm extends Component {
   constructor(props) {
@@ -41,7 +41,7 @@ class WelcomeForm extends Component {
       <form className='form'>
         <label>Your Name</label>
         <input type='text' name='name' value={this.state.name}
-          onChange={(event) => this.handleChange(event)}/>
+          onChange={(event) => this.handleChange(event)} id='nameInput'/>
         <label>Your Favorite SW Quote</label>
         <input type='text' name='quote' value={this.state.quote}
           onChange={(event) => this.handleChange(event)}/>
@@ -49,25 +49,25 @@ class WelcomeForm extends Component {
         <label className='radios' htmlFor='rank1'>
           <input type='radio' name='rank' value='Padawan'id='rank1'
             checked={this.state.rank === 'Padawan'}
-            onChange={this.handleRankSelection}
+            onChange={event => this.handleRankSelection(event)}
           />Padawan
         </label>
         <label className='radios' htmlFor='rank2'>
           <input type='radio' name='rank' value='Jedi Knight'id='rank2'
             checked={this.state.rank === 'Jedi Knight'}
-            onChange={this.handleRankSelection}
+            onChange={event => this.handleRankSelection(event)}
           />Jedi Knight
         </label>
         <label className='radios' htmlFor='rank3'>
           <input type='radio' name='rank' value='Jedi Master'id='rank3'
             checked={this.state.rank === 'Jedi Master'}
-            onChange={this.handleRankSelection}
+            onChange={event => this.handleRankSelection(event)}
           />Jedi Master
         </label>
         <p className='error' hidden={!this.state.error}>
           Error - Please provide name, quote and ranking to proceed.</p>
         {this.state.name && this.state.quote &&
-          <Link to='/movies'>
+          <Link id='link' to='/movies'>
             <button onClick={() => this.handleClick()}>ENTER</button>
           </Link>
         }
@@ -77,3 +77,7 @@ class WelcomeForm extends Component {
 }
 
 export default WelcomeForm;
+
+WelcomeForm.propTypes = {
+  updateUser: PropTypes.func
+}

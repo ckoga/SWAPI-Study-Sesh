@@ -3,22 +3,17 @@ import './DisplayContainer.scss'
 import MovieCard from '../MovieCard/MovieCard';
 import CharacterCard from '../CharacterCard/CharacterCard';
 
-
-const DisplayContainer = ( {data, fetchChar, isMovies} ) => {
-  // console.log('isMovies: ', isMovies)
+const DisplayContainer = ( {data, fetchHandler, isMovies, scroll} ) => {
   const cards = data.map(item => {
-    // console.log('inside .map', 'made it')
     if (isMovies) {
-      // console.log('isMovies is true so IF block')
       return <MovieCard
               key={item.episode_id}
               episode={item.episode_id}
               title={item.title}
               releaseDate={item.release_date}
-              fetchChar={fetchChar}
+              fetchHandler={fetchHandler}
               />
     } else {
-      // console.log('isMovies is false so ELSE block')
       return <CharacterCard
               key={item.name}
               name={item.name}
@@ -32,6 +27,7 @@ const DisplayContainer = ( {data, fetchChar, isMovies} ) => {
 
   return (
     <main className='display-container' key=''>
+      {scroll && <div>{scroll}</div>}
       {cards}
     </main>
   )

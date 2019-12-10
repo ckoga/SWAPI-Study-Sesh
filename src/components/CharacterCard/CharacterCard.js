@@ -1,9 +1,9 @@
 import React from 'react';
-import './CharacterCard.scss';
+import '../MovieCard/MovieCard.scss';
 
 const CharacterCard = ({ episode_id, name, homeworld, population, species, films }) => {
   return (
-    <div className='character-card'>
+    <div className='card'>
       <h2>{name}</h2>
       <ul>
         <li>Homeworld: {homeworld}</li>
