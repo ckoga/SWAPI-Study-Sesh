@@ -67,8 +67,8 @@ class WelcomeForm extends Component {
         <p className='error' hidden={!this.state.error}>
           Error - Please provide name, quote and ranking to proceed.</p>
         {this.state.name && this.state.quote &&
-          <Link id='link' to='/movies'>
-            <button onClick={() => this.handleClick()}>ENTER</button>
+          <Link to='/movies'>
+            <button className='enter-button' onClick={() => this.handleClick()}>ENTER</button>
           </Link>
         }
       </form>

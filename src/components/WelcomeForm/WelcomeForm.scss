@@ -1,3 +1,5 @@
+@import '../../variables';
+
 .form {
   color: #F3CA3E;
   display: flex;
@@ -28,4 +30,22 @@ label {
 .error {
   color: red;
   text-align: center;
+}
+
+.enter-button {
+  color: $accent-color;
+  background-color: $header-background;
+  border: 1px solid $accent-color;
+  margin: 15px 0px 0px 0px;
+  border-radius: 5px;
+  width: 100%;
+
+  &:hover {
+    color: $header-background;
+    background-color: $accent-color;
+  }
+}
+
+a {
+  margin: 0;
 }
