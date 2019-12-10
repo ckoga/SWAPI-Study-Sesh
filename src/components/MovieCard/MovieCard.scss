@@ -12,9 +12,8 @@
   padding: 10px;
   text-align: center;
   width: 250px;
-  
+
   &:hover {
-    // border: 4px solid $accent-color;
     box-shadow: 5px 5px 5px $accent-color;
   }
   h2 {
@@ -31,14 +30,14 @@
   color: $accent-color;
   background-color: $header-background;
   border: 1px solid $accent-color;
-  margin: 15px;
+  margin: 0px;
+  padding: 10px;
   border-radius: 5px;
+  box-shadow: 5px 5px 5px $background-color;
+
 
   &:hover {
     color: $header-background;
     background-color: $accent-color;
   }
 }
-
-
-
