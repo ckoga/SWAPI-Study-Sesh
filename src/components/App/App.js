@@ -451,6 +451,7 @@ class App extends Component {
         }
       ],
       characters: [],
+      scroll: '',
       error: false,
       user: {
         name: '',
@@ -470,9 +471,16 @@ class App extends Component {
       .catch(err => console.log(err))
   }
 
+  setScroll = (movie) => {
+    this.setState({ scroll: movie.opening_crawl })
+  }
+
+
   fetchHandler = (episode) => {
     const selectedMov = this.state.movies.find(movie => movie.episode_id === episode)
     const tenCharacters = selectedMov.characters.slice(0, 10);
+
+    this.setScroll(selectedMov);
 
     const fetchCharData = () => {
       const fetchedCharacters = tenCharacters.map(character => {
@@ -547,6 +555,7 @@ class App extends Component {
         } />
         <Route path='/movies/:movie_id' render={ ({ match }) => {
           return(<DisplayContainer
+            scroll={this.state.scroll}
             data={this.state.characters}
             />)}
         } />
