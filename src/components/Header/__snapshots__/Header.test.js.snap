@@ -4,28 +4,38 @@ exports[`Header should match the snapshot with all data passed in correctly 1`] 
 <header
   className="header"
 >
-  <h1>
-    WELCOME 
-    <span>
-      Chase
-    </span>
-  </h1>
-  <h2>
-    Ranking: Novice
-  </h2>
-  <p>
-    Obscure StarWars Quote
-  </p>
-  <Link
-    to="/"
+  <div
+    className="left-header"
   >
-    <button
-      className="show"
-      onClick={[Function]}
+    <h1>
+      WELCOME 
+      <span>
+        Chase
+      </span>
+    </h1>
+    <h2>
+      Ranking: Novice
+    </h2>
+  </div>
+  <div
+    className="right-header"
+  >
+    <Link
+      to="/"
     >
-      Sign Out
-    </button>
-  </Link>
+      <button
+        className="show"
+        onClick={[Function]}
+      >
+        Sign Out
+      </button>
+    </Link>
+    <p
+      className="quote"
+    >
+      Obscure StarWars Quote
+    </p>
+  </div>
 </header>
 `;
 
@@ -33,21 +43,31 @@ exports[`Header should match the snapshot with empty strings passed in 1`] = `
 <header
   className="header"
 >
-  <h1>
-    WELCOME 
-    <span />
-  </h1>
-  <h2 />
-  <p />
-  <Link
-    to="/"
+  <div
+    className="left-header"
   >
-    <button
-      className="hide"
-      onClick={[Function]}
+    <h1>
+      WELCOME 
+      <span />
+    </h1>
+    <h2 />
+  </div>
+  <div
+    className="right-header"
+  >
+    <Link
+      to="/"
     >
-      Sign Out
-    </button>
-  </Link>
+      <button
+        className="hide"
+        onClick={[Function]}
+      >
+        Sign Out
+      </button>
+    </Link>
+    <p
+      className="quote"
+    />
+  </div>
 </header>
 `;
