@@ -9,13 +9,17 @@ const Header = ({name, quote, rank, updateUser}) => {
 
   return(
     <header className='header'>
-    <h1>WELCOME <span>{name}</span></h1>
-    <h2>{rank}</h2>
-    <p>{quote}</p>
-    <Link to='/'>
-    <button onClick={() => updateUser(noUser)}
-      className={buttonView}>Sign Out</button>
-    </Link>
+      <div className='left-header'>
+        <h1>WELCOME <span>{name}</span></h1>
+        <h2>{rank}</h2>
+      </div>
+      <div className='right-header'>
+        <Link to='/'>
+          <button onClick={() => updateUser(noUser)}
+            className={buttonView}>Sign Out</button>
+        </Link>
+        <p className='quote'>{quote}</p>
+      </div>
     </header>
   )
 }
