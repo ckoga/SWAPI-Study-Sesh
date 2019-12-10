@@ -3,9 +3,10 @@ import { shallow } from 'enzyme';
 import DisplayContainer from './DisplayContainer';
 
 describe('DisplayContainer', () => {
-  let movies;
+  let mockState;
   beforeEach(() => {
-    movies = [
+    mockState = {
+    movies: [
       {
         "title": "A New Hope",
         "episode_id": 4,
@@ -255,12 +256,31 @@ describe('DisplayContainer', () => {
         "edited": "2015-04-11T09:45:18.689301Z",
         "url": "https://swapi.co/api/films/4/"
       }
-    ]
+    ],
+    characters: [
+        {
+          episode_id: 10000000000,
+          name: 'Heather',
+          homeworld: 'Earth',
+          species: 'Human',
+          films: ['The Best Movie']
+        }
+      ]
+    }
   })
 
 
-  it('should match the snapshot with all data passed in correctly', () => {
-    const wrapper = shallow(<DisplayContainer data={movies}/>)
+  it('should match the snapshot with all movie data passed in correctly', () => {
+    const wrapper = shallow(<DisplayContainer 
+      data={mockState.movies}
+      isMovies={true}/>)
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should match the snapshot with all the character data passed in correctly', () => {
+    const wrapper = shallow(<DisplayContainer data={mockState.characters} />)
+    
     expect(wrapper).toMatchSnapshot();
   })
 })

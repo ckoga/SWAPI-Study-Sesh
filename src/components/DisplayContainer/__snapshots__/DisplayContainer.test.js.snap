@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DisplayContainer should match the snapshot with all data passed in correctly 1`] = `
+exports[`DisplayContainer should match the snapshot with all movie data passed in correctly 1`] = `
 <main
   className="display-container"
   key=""
@@ -22,6 +22,25 @@ exports[`DisplayContainer should match the snapshot with all data passed in corr
     key="1"
     releaseDate="1999-05-19"
     title="The Phantom Menace"
+  />
+</main>
+`;
+
+exports[`DisplayContainer should match the snapshot with all the character data passed in correctly 1`] = `
+<main
+  className="display-container"
+  key=""
+>
+  <CharacterCard
+    films={
+      Array [
+        "The Best Movie",
+      ]
+    }
+    homeworld="Earth"
+    key="Heather"
+    name="Heather"
+    species="Human"
   />
 </main>
 `;
