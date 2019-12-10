@@ -32,7 +32,9 @@ const DisplayContainer = ( {data, fetchHandler, isMovies, scroll} ) => {
       {scroll && <div className="scroll-container">
         <div className="scroll">{scroll}</div>
       </div>}
-      {cards}
+      <div className='card-container'>
+        {cards}
+      </div>
     </main>
   )
 };
