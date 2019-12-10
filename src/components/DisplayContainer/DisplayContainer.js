@@ -4,7 +4,7 @@ import MovieCard from '../MovieCard/MovieCard';
 import CharacterCard from '../CharacterCard/CharacterCard';
 import PropTypes from 'prop-types';
 
-const DisplayContainer = ( {data, fetchHandler, isMovies} ) => {
+const DisplayContainer = ( {data, fetchHandler, isMovies, scroll} ) => {
   const cards = data.map(item => {
     if (isMovies) {
       return <MovieCard
@@ -23,15 +23,16 @@ const DisplayContainer = ( {data, fetchHandler, isMovies} ) => {
               species={item.species}
               films={item.films}
               />
-    }
-  })
+    };
+  });
 
   return (
     <main className='display-container' key=''>
+      {scroll && <div>{scroll}</div>}
       {cards}
     </main>
   )
-}
+};
 
 export default DisplayContainer;
 
