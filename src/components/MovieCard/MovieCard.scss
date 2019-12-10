@@ -2,12 +2,12 @@
 
 .card {
   align-items: center;
+  background-color: $header-background;
+  color: $accent-color;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  color: $accent-color;
-  background-color: $header-background;
   height: 300px;
+  justify-content: space-around;
   margin: 30px;
   padding: 10px;
   text-align: center;
@@ -16,6 +16,7 @@
   &:hover {
     box-shadow: 5px 5px 5px $accent-color;
   }
+
   h2 {
     font-size: 2em;
     margin: 5px 0 10px 0;
@@ -27,18 +28,18 @@
 }
 
 .characters-btn {
-  color: $accent-color;
   background-color: $header-background;
   border: 1px solid $accent-color;
-  margin: 0px;
-  padding: 10px;
   border-radius: 5px;
   box-shadow: 5px 5px 5px $background-color;
+  color: $accent-color;
   cursor: pointer;
   font-size: 1em;
+  margin: 0px;
+  padding: 10px;
 
   &:hover {
-    color: $header-background;
     background-color: $accent-color;
+    color: $header-background;
   }
 }

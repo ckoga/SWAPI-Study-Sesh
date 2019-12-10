@@ -4,20 +4,20 @@
   color: #F3CA3E;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  width:40%;
-  text-align: left;
-  margin: 50px auto 0 auto;
   font-size: 1.4em;
+  justify-content: center;
+  margin: 50px auto 0 auto;
+  text-align: left;
+  width:40%;
 }
 
 input {
-  padding: 10px;
   font-size: 1em;
+  padding: 10px;
 }
 
 label {
-    margin: 5px 0 5px 0;
+  margin: 5px 0 5px 0;
 }
 
 .radios {
@@ -33,16 +33,16 @@ label {
   color: $accent-color;
   background-color: $header-background;
   border: 1px solid $accent-color;
-  margin: 15px 0px 0px 0px;
   border-radius: 5px;
-  width: 100%;
   cursor: pointer;
-  padding: 10px;
   font-size: 1em;
+  margin: 15px 0px 0px 0px;
+  padding: 10px;
+  width: 100%;
 
   &:hover {
-    color: $header-background;
     background-color: $accent-color;
+    color: $header-background;
   }
 }
 
