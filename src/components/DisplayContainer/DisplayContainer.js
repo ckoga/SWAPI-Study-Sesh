@@ -4,7 +4,7 @@ import MovieCard from '../MovieCard/MovieCard';
 import CharacterCard from '../CharacterCard/CharacterCard';
 
 
-const DisplayContainer = ( {data, fetchHandler, isMovies} ) => {
+const DisplayContainer = ( {data, fetchHandler, isMovies, scroll} ) => {
   console.log('isMovies: ', isMovies)
   const cards = data.map(item => {
     console.log('inside .map', 'made it')
@@ -32,6 +32,7 @@ const DisplayContainer = ( {data, fetchHandler, isMovies} ) => {
 
   return (
     <main className='display-container' key=''>
+      {scroll && <div>{scroll}</div>}
       {cards}
     </main>
   )

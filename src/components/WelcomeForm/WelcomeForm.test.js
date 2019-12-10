@@ -33,7 +33,7 @@ describe('WelcomeForm', () => {
     expect(wrapper.state('rank')).toEqual(expected);
   });
 
-  it('should update state when handleClick is invoke with empty input(s)',
+  it('should update state when handleClick is invoked with empty input(s)',
     () => {
       wrapper.instance().handleClick();
 
