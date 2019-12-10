@@ -5,11 +5,8 @@ import CharacterCard from '../CharacterCard/CharacterCard';
 
 
 const DisplayContainer = ( {data, fetchHandler, isMovies} ) => {
-  console.log('isMovies: ', isMovies)
   const cards = data.map(item => {
-    console.log('inside .map', 'made it')
     if (isMovies) {
-      console.log('isMovies is true so IF block')
       return <MovieCard
               key={item.episode_id}
               episode={item.episode_id}
@@ -18,7 +15,6 @@ const DisplayContainer = ( {data, fetchHandler, isMovies} ) => {
               fetchHandler={fetchHandler}
               />
     } else {
-      console.log('isMovies is false so ELSE block')
       return <CharacterCard
               key={item.name}
               name={item.name}
