@@ -2,19 +2,59 @@
 
 .header {
   background-color: $header-background;
-  color: $accent-color;
   border: 2px solid $accent-color;
   border-left: none;
   border-right: none;
-  width: 100%;
-  height: 10%;
-  padding: 1%;
+  color: $accent-color;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.3%;
 }
 
 h1 {
-  margin: 0px;
+  margin: 0px 0px 10px 0px;
+}
+
+h2 {
+  margin: 0;
 }
 
 .hide {
  display: none;
+}
+
+.show {
+    background-color: $header-background;
+    border: 1px solid $accent-color;
+    border-radius: 5px;
+    color: $accent-color;
+    cursor: pointer;
+    font-size: 1em;
+    margin: 15px;
+    padding: 10px;
+
+    &:hover {
+      background-color: $accent-color;
+      color: $header-background;
+    }
+}
+
+.left-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.right-header {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.quote {
+  font-size: 1.6em;
+  margin: 0;
+  text-align: center;
+  width: 100%;
 }

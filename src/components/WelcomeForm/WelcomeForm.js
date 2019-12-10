@@ -26,7 +26,7 @@ class WelcomeForm extends Component {
     if (this.state.name && this.state.quote) {
       this.setState({error: false});
       const user = {
-        name: this.state.name,
+        name: this.state.name.toUpperCase(),
         quote: this.state.quote,
         rank: 'Ranking: '+ this.state.rank,
       }
@@ -67,8 +67,8 @@ class WelcomeForm extends Component {
         <p className='error' hidden={!this.state.error}>
           Error - Please provide name, quote and ranking to proceed.</p>
         {this.state.name && this.state.quote &&
-          <Link id='link' to='/movies'>
-            <button onClick={() => this.handleClick()}>ENTER</button>
+          <Link to='/movies'>
+            <button className='enter-button' onClick={() => this.handleClick()}>ENTER</button>
           </Link>
         }
       </form>

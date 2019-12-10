@@ -81,11 +81,11 @@ describe('WelcomeForm', () => {
 
   it('should invoke updateUser with user object when handleClick is invoked',
     () => {
-      const mockState = {name: 'Robbie', quote: '"Luke. I am your father."',
+      const mockState = {name: 'ROBBIE', quote: '"Luke. I am your father."',
         rank: 'Padawan', error: false,};
       wrapper.setState(mockState);
       expect(wrapper.state()).toEqual(mockState);
-      const mockUser = {name: 'Robbie', quote: '"Luke. I am your father."',
+      const mockUser = {name: 'ROBBIE', quote: '"Luke. I am your father."',
         rank: 'Ranking: Padawan'};
       wrapper.instance().handleClick();
 
