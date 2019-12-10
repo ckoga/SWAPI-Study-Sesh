@@ -3,7 +3,7 @@ export const getFilms = () => {
     .then(response => {
       if (!response.ok) {
         throw Error('Error fetching films');
-      } 
+      }
       return response.json()
     });
 };
