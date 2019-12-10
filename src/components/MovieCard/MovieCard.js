@@ -1,7 +1,7 @@
 import React from 'react';
 import './MovieCard.scss';
 import {Link} from 'react-router-dom';
-
+import PropTypes from 'prop-types';
 
 
 const MovieCard = ({ episode, title, releaseDate, fetchHandler }) => {
@@ -21,3 +21,10 @@ const MovieCard = ({ episode, title, releaseDate, fetchHandler }) => {
 };
 
 export default MovieCard;
+
+MovieCard.propTypes = {
+  episode: PropTypes.number,
+  title: PropTypes.string,
+  releaseDate: PropTypes.string,
+  fetchHandler: PropTypes.func
+}
