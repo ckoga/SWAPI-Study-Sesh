@@ -26,7 +26,7 @@ class WelcomeForm extends Component {
     if (this.state.name && this.state.quote) {
       this.setState({error: false});
       const user = {
-        name: this.state.name,
+        name: this.state.name.toUpperCase(),
         quote: this.state.quote,
         rank: 'Ranking: '+ this.state.rank,
       }
