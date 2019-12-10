@@ -2,7 +2,7 @@
 
 exports[`CharacterCard should match the snapshot with all the data being passed in correctly 1`] = `
 <div
-  className="card"
+  className="card character-card"
 >
   <h2>
     Heather
@@ -24,7 +24,9 @@ exports[`CharacterCard should match the snapshot with all the data being passed 
       The Best Movie
     </li>
   </ul>
-  <button>
+  <button
+    className="favorite-character-btn"
+  >
     favorite
   </button>
 </div>

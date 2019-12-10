@@ -6,7 +6,7 @@
   color: $accent-color;
   display: flex;
   flex-direction: column;
-  height: 300px;
+  height: auto;
   justify-content: space-around;
   margin: 30px;
   padding: 10px;
@@ -27,6 +27,7 @@
   }
 }
 
+.favorite-character-btn,
 .characters-btn {
   background-color: $header-background;
   border: 1px solid $accent-color;

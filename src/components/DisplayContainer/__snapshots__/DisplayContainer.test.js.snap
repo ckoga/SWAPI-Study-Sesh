@@ -5,24 +5,28 @@ exports[`DisplayContainer should match the snapshot with all movie data passed i
   className="display-container"
   key=""
 >
-  <MovieCard
-    episode={4}
-    key="4"
-    releaseDate="1977-05-25"
-    title="A New Hope"
-  />
-  <MovieCard
-    episode={2}
-    key="2"
-    releaseDate="2002-05-16"
-    title="Attack of the Clones"
-  />
-  <MovieCard
-    episode={1}
-    key="1"
-    releaseDate="1999-05-19"
-    title="The Phantom Menace"
-  />
+  <div
+    className="card-container"
+  >
+    <MovieCard
+      episode={4}
+      key="4"
+      releaseDate="1977-05-25"
+      title="A New Hope"
+    />
+    <MovieCard
+      episode={2}
+      key="2"
+      releaseDate="2002-05-16"
+      title="Attack of the Clones"
+    />
+    <MovieCard
+      episode={1}
+      key="1"
+      releaseDate="1999-05-19"
+      title="The Phantom Menace"
+    />
+  </div>
 </main>
 `;
 
@@ -31,16 +35,20 @@ exports[`DisplayContainer should match the snapshot with all the character data 
   className="display-container"
   key=""
 >
-  <CharacterCard
-    films={
-      Array [
-        "The Best Movie",
-      ]
-    }
-    homeworld="Earth"
-    key="Heather"
-    name="Heather"
-    species="Human"
-  />
+  <div
+    className="card-container"
+  >
+    <CharacterCard
+      films={
+        Array [
+          "The Best Movie",
+        ]
+      }
+      homeworld="Earth"
+      key="Heather"
+      name="Heather"
+      species="Human"
+    />
+  </div>
 </main>
 `;

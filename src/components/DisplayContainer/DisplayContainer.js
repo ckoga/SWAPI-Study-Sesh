@@ -27,9 +27,14 @@ const DisplayContainer = ( {data, fetchHandler, isMovies, scroll} ) => {
   });
 
   return (
+
     <main className='display-container' key=''>
-      {scroll && <div>{scroll}</div>}
-      {cards}
+      {scroll && <div className="scroll-container">
+        <div className="scroll">{scroll}</div>
+      </div>}
+      <div className='card-container'>
+        {cards}
+      </div>
     </main>
   )
 };
