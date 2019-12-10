@@ -14,7 +14,7 @@ class App extends Component {
       movies: [],
       characters: [],
       scroll: '',
-      error: false,
+      error: '',
       user: {
         name: '',
         quote: '',
@@ -30,7 +30,10 @@ class App extends Component {
   componentDidMount() {
     getFilms()
       .then(data => this.setState({ movies: data.results }))
-      .catch(err => console.log(err))
+      .catch(err => {
+        console.log(err);
+        this.setState({ error: err.message})
+      })
   }
 
   setScroll = (movie) => {
@@ -47,11 +50,20 @@ class App extends Component {
     const fetchCharData = () => {
       const fetchedCharacters = tenCharacters.map(character => {
         return fetch(character)
-          .then(response => response.json())
+        .then(response => {
+          if (!response.ok) {
+            throw Error('Error fetching films');
+          }
+          return response.json()
+        })
           .then(charData => getNestedData(charData))
       });
       Promise.all(fetchedCharacters)
         .then(data => this.setState({ characters: data }))
+        .catch(err => {
+          console.log(err);
+          this.setState({ error: err.message})
+        })
     }
 
     const getNestedData = (charData) => {
@@ -75,18 +87,33 @@ class App extends Component {
 
     const fetchHomeWorld = (charData) => {
       return fetch(charData.homeworld)
-        .then(response => response.json())
+      .then(response => {
+        if (!response.ok) {
+          throw Error('Error fetching films');
+        }
+        return response.json()
+      })
     }
 
     const fetchSpecies = (charData) => {
       return fetch(charData.species)
-        .then(response => response.json())
+      .then(response => {
+        if (!response.ok) {
+          throw Error('Error fetching films');
+        }
+        return response.json()
+      })
     }
 
     const fetchFilms = (charData) => {
       const filmPromises = charData.films.map(film => {
         return fetch(film)
-          .then(response => response.json())
+        .then(response => {
+          if (!response.ok) {
+            throw Error('Error fetching films');
+          }
+          return response.json()
+        })
       });
       return filmPromises;
     }
@@ -103,6 +130,7 @@ class App extends Component {
           rank={this.state.user.rank}
           updateUser={this.updateUser}
         />
+        {this.state.error && <h2 className='fetch-error'>{this.state.error}</h2>}
         <Route exact path='/' render={ () =>
           <WelcomeForm
             updateUser={this.updateUser}
