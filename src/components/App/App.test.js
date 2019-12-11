@@ -52,7 +52,7 @@ describe('App', () => {
     expect(wrapper.state('user')).toEqual(expected);
   })
 
-  it('should update state when setScroll is invoked', () => {
+  it('should update state when setScrollAndLoading is invoked', () => {
     const mockMovie = {
     "title": "The Empire Strikes Back",
     "episode_id": 5,
@@ -71,7 +71,7 @@ describe('App', () => {
     };
     const expected = "Impressive opening starwars crawl";
 
-    wrapper.instance().setScroll(mockMovie);
+    wrapper.instance().setScrollAndLoading(mockMovie);
 
     expect(wrapper.state('scroll')).toEqual(expected);
   })
