@@ -4,7 +4,7 @@ import MovieCard from '../MovieCard/MovieCard';
 import CharacterCard from '../CharacterCard/CharacterCard';
 import PropTypes from 'prop-types';
 
-const DisplayContainer = ( {data, fetchHandler, isMovies, scroll} ) => {
+const DisplayContainer = ( {data, fetchHandler, isMovies, scroll, isLoading} ) => {
   const cards = data.map(item => {
     if (isMovies) {
       return <MovieCard
@@ -29,6 +29,8 @@ const DisplayContainer = ( {data, fetchHandler, isMovies, scroll} ) => {
   return (
 
     <main className='display-container' key=''>
+      {isLoading && <h2 className='loadingDisplay'>
+          Be Patient One Must....What You Seek Display Soon Will</h2>}
       {scroll && <div className="scroll-container">
         <div className="scroll">{scroll}</div>
       </div>}

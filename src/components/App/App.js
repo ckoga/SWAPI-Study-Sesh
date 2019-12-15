@@ -15,6 +15,7 @@ class App extends Component {
       characters: [],
       scroll: '',
       error: '',
+      isLoading: true,
       user: {
         name: '',
         quote: '',
@@ -29,23 +30,22 @@ class App extends Component {
 
   componentDidMount() {
     getFilms()
-      .then(data => this.setState({ movies: data.results }))
+      .then(data => this.setState({ movies: data.results, isLoading: false }))
       .catch(err => {
         console.log(err);
         this.setState({ error: err.message})
       })
   }
 
-  setScroll = (movie) => {
-    this.setState({ scroll: movie.opening_crawl })
+  setScrollAndLoading = (movie) => {
+    this.setState({ scroll: movie.opening_crawl, isLoading: true, characters: [] })
   }
-
 
   fetchHandler = (episode) => {
     const selectedMov = this.state.movies.find(movie => movie.episode_id === episode)
     const tenCharacters = selectedMov.characters.slice(0, 10);
 
-    this.setScroll(selectedMov);
+    this.setScrollAndLoading(selectedMov);
 
     const fetchCharData = () => {
       const fetchedCharacters = tenCharacters.map(character => {
@@ -59,7 +59,7 @@ class App extends Component {
           .then(charData => getNestedData(charData))
       });
       Promise.all(fetchedCharacters)
-        .then(data => this.setState({ characters: data }))
+        .then(data => this.setState({ characters: data, isLoading: false }))
         .catch(err => {
           console.log(err);
           this.setState({ error: err.message})
@@ -141,12 +141,14 @@ class App extends Component {
             data={this.state.movies}
             fetchHandler={this.fetchHandler}
             isMovies={true}
+            isLoading={this.state.isLoading}
           />)}
         } />
         <Route path='/movies/:movie_id' render={ ({ match }) => {
           return(<DisplayContainer
             scroll={this.state.scroll}
             data={this.state.characters}
+            isLoading={this.state.isLoading}
             />)}
         } />
       </div>
