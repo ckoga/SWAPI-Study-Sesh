@@ -1,7 +1,7 @@
 # SWAPI-Study-Sesh
 ## Mod 3 Paired Project
 ### Dev Team
-[Colin Koga](https://github.com/ckoga)
+[Colin Koga](https://github.com/ckoga) &
 [Heather Faerber](https://github.com/hfaerber)  
 
 An app that retrieves data from a Star Wars API and displays it for users to study up on Star Wars trivia.
